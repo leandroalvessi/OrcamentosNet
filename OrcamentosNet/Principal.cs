@@ -19,12 +19,14 @@ namespace OrcamentosNet
 
         private void buttonOrcamentos_Click(object sender, EventArgs e)
         {
-
+            Orcamentos orcamentos = new Orcamentos();
+            orcamentos.ShowDialog();
         }
 
         private void buttonProdutos_Click(object sender, EventArgs e)
         {
-
+            Produtos produtos = new Produtos();
+            produtos.ShowDialog();
         }
     }
 }
