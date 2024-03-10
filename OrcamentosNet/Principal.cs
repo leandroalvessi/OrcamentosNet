@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrcamentosNet.Db;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,9 @@ namespace OrcamentosNet
         public Principal()
         {
             InitializeComponent();
+
+            DatabaseManager databaseManager = new DatabaseManager();
+            databaseManager.CriarBancoDados();
         }
 
         private void buttonOrcamentos_Click(object sender, EventArgs e)
