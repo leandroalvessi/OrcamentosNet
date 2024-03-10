@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OrcamentosNet.Controllers;
+using OrcamentosNet.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,20 @@ namespace OrcamentosNet
         public Produtos()
         {
             InitializeComponent();
+            AtualizaGrid();
+        }
+
+        public void AtualizaGrid()
+        {
+            ProdutoController produtoController = new ProdutoController();
+            List<Produto> produtosLista = new List<Produto>();
+            produtosLista = produtoController.ObterProdutos();
+
+            dataGridViewProdutos.Rows.Clear();
+            foreach (Produto produto in produtosLista)
+            {
+                dataGridViewProdutos.Rows.Add(produto.Id, produto.Descricao, produto.Valor);
+            }
         }
     }
 }
