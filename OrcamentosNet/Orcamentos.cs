@@ -36,5 +36,13 @@ namespace OrcamentosNet
                                                 orcamento.Uf, orcamento.Cidade, orcamento.Valor, orcamento.ValorDesconto, orcamento.ValorTotal, orcamento.DataCriacao);
             }
         }
+
+        private void buttonNovo_Click(object sender, EventArgs e)
+        {
+            Orcamento orcamento = new Orcamento();
+            CadastroOrcamento cadastroOrcamento = new CadastroOrcamento(orcamento);
+            cadastroOrcamento.ShowDialog();
+            AtualizaGrid();
+        }
     }
 }

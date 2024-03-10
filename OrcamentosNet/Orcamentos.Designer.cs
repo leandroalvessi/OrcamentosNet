@@ -116,6 +116,7 @@
             this.buttonNovo.TabIndex = 5;
             this.buttonNovo.Text = "Novo";
             this.buttonNovo.UseVisualStyleBackColor = true;
+            this.buttonNovo.Click += new System.EventHandler(this.buttonNovo_Click);
             // 
             // Id
             // 
