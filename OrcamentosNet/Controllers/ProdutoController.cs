@@ -79,6 +79,8 @@ namespace OrcamentosNet.Controllers
 
                 using (SQLiteCommand command = new SQLiteCommand(query, connection))
                 {
+                    connection.Open();
+
                     command.Parameters.AddWithValue("@Descricao", produto.Descricao);
                     command.Parameters.AddWithValue("@Valor", produto.Valor);
 
@@ -112,6 +114,8 @@ namespace OrcamentosNet.Controllers
 
                 using (SQLiteCommand command = new SQLiteCommand(query, connection))
                 {
+                    connection.Open();
+
                     command.Parameters.AddWithValue("@Descricao", produto.Descricao);
                     command.Parameters.AddWithValue("@Valor", produto.Valor);
                     command.Parameters.AddWithValue("@Id", produto.Id);
@@ -150,6 +154,7 @@ namespace OrcamentosNet.Controllers
             try
             {
                 connection = connectionManager.GetConnection();
+                connection.Open();
                 using (transaction = connection.BeginTransaction())
                 {
                     string deleteOrcamentoQuery = "DELETE FROM Produto WHERE Id = @Id";
