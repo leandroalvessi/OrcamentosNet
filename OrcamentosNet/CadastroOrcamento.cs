@@ -104,12 +104,20 @@ namespace OrcamentosNet
 
         private void textBoxId_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void radioButtonCPF_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (radioButtonCPF.Checked)
+            {
+                radioButtonCNPJ.Checked = false;
+                maskedTextBoxCPFCNPJ.Mask = "000,000,000-00";
+                maskedTextBoxCPFCNPJ.Clear();
+            }
         }
 
         private void textBoxDescricao_DoubleClick(object sender, EventArgs e)
@@ -137,6 +145,223 @@ namespace OrcamentosNet
                 decimal valor = Convert.ToDecimal(dataGridViewProdutos.Rows[e.RowIndex].Cells["Valor"].Value);
                 decimal total = quantidade * valor;
                 dataGridViewProdutos.Rows[e.RowIndex].Cells["Total"].Value = total;
+                CalcularTotalGeral();
+            }
+        }
+
+        private void buttonSalva_Click(object sender, EventArgs e)
+        {
+            OrcamentoController orcamentroController = new OrcamentoController();
+            ItemOrcamentoController itemOrcamentoController = new ItemOrcamentoController();
+            Orcamento novoOrcamento;
+            decimal valorDesconto = 0;
+
+            if (!string.IsNullOrWhiteSpace(textBoxDesconto.Text))
+            {
+                string valorFormatado = textBoxDesconto.Text
+                    .Replace(CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol, "")
+                    .Replace(CultureInfo.CurrentCulture.NumberFormat.NumberGroupSeparator, "")
+                    .Trim();
+
+                if (decimal.TryParse(valorFormatado, NumberStyles.Currency, CultureInfo.CurrentCulture, out decimal valorConvertido))
+                {
+                    valorDesconto = valorConvertido;
+                }
+            }
+
+            if (bSalva)
+            {
+                novoOrcamento = new Orcamento();
+                novoOrcamento.Nome = textBoxNome.Text;
+                novoOrcamento.ValorDesconto = valorDesconto;
+                novoOrcamento.Inscricao = maskedTextBoxCPFCNPJ.Text;
+                novoOrcamento.Telefone1 = maskedTextBoxTelefone1.Text;
+                novoOrcamento.Telefone2 = maskedTextBoxTelefone2.Text;
+                novoOrcamento.Email = textBoxEmail.Text;
+                novoOrcamento.Endereco = textBoxEndereco.Text;
+                novoOrcamento.Bairro = textBoxBairro.Text;
+                novoOrcamento.Uf = textBoxUF.Text;
+                novoOrcamento.Cep = maskedTextBoxCEP.Text;
+                novoOrcamento.Cidade = textBoxCidade.Text;
+
+                if (radioButtonCPF.Checked)
+                {
+                    novoOrcamento.TipoInscricao = 1;
+                }
+                else
+                {
+                    novoOrcamento.TipoInscricao = 2;
+                }
+
+                orcamentroController.SalvarOrcamento(novoOrcamento, out this.id);
+
+                if (this.id > 0)
+                {
+                    if (dataGridViewProdutos.RowCount > 0)
+                    {
+                        itemOrcamentoController.SalvarItemOrcamento(dataGridViewProdutos, this.id);
+                        MessageBox.Show("Orcamento salvo com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    this.Close();
+                }
+            }
+            else
+            {
+                novoOrcamento = new Orcamento();
+                novoOrcamento.Id = this.id;
+                novoOrcamento.Nome = textBoxNome.Text;
+                novoOrcamento.ValorDesconto = valorDesconto;
+                novoOrcamento.Inscricao = maskedTextBoxCPFCNPJ.Text;
+                novoOrcamento.Telefone1 = maskedTextBoxTelefone1.Text;
+                novoOrcamento.Telefone2 = maskedTextBoxTelefone2.Text;
+                novoOrcamento.Email = textBoxEmail.Text;
+                novoOrcamento.Endereco = textBoxEndereco.Text;
+                novoOrcamento.Bairro = textBoxBairro.Text;
+                novoOrcamento.Uf = textBoxUF.Text;
+                novoOrcamento.Cep = maskedTextBoxCEP.Text;
+                novoOrcamento.Cidade = textBoxCidade.Text;
+
+                if (radioButtonCPF.Checked)
+                {
+                    novoOrcamento.TipoInscricao = 1;
+                }
+                else
+                {
+                    novoOrcamento.TipoInscricao = 2;
+                }
+
+                if (orcamentroController.EditarOrcamento(novoOrcamento))
+                {
+                    itemOrcamentoController.SalvarItemOrcamento(dataGridViewProdutos, this.id);
+                    MessageBox.Show("Orcamento editado com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+            }
+        }
+
+        private void radioButtonCNPJ_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonCNPJ.Checked)
+            {
+                radioButtonCPF.Checked = false;
+                maskedTextBoxCPFCNPJ.Mask = "00,000,000/0000-00";
+                maskedTextBoxCPFCNPJ.Clear();
+            }
+        }
+
+        private void textBoxId_TextChanged(object sender, EventArgs e)
+        {
+            ProdutoController produtoController = new ProdutoController();
+            List<Produto> produtosLista = new List<Produto>();
+            produtosLista = produtoController.ObterProdutos();
+
+            if (textBoxId.Text != "0")
+            {
+                if (!string.IsNullOrEmpty(textBoxId.Text))
+                {
+                    string id = textBoxId.Text;
+
+                    if (int.TryParse(id, out int idInt))
+                    {
+                        Produto produto = produtosLista.Find(o => o.Id == idInt);
+
+                        if (produto != null)
+                        {
+                            textBoxDescricao.Text = produto.Descricao;
+                            ValorProduto = produto.Valor;
+                        }
+                        else
+                        {
+                            MessageBox.Show("O produto não foi encontrado. Por favor, verifique se o produto informado existe na lista.", "Produto Não Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            textBoxDescricao.Clear();
+                            textBoxId.Clear();
+                        }
+                    }
+                }
+                else
+                {
+                    textBoxDescricao.Clear();
+                    textBoxId.Clear();
+                }
+            }
+            else
+            {
+                textBoxDescricao.Clear();
+                textBoxId.Clear();
+            }
+        }
+
+        private bool CamposVazios()
+        {
+            if (string.IsNullOrEmpty(textBoxId.Text) ||
+                string.IsNullOrEmpty(textBoxDescricao.Text) ||
+                textBoxId.Text == "0")
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool CodigoExistente(string codigo)
+        {
+            foreach (DataGridViewRow row in dataGridViewProdutos.Rows)
+            {
+                if (row.Cells["Codigo"].Value != null && row.Cells["Codigo"].Value.ToString() == codigo)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void buttonAdiciona_Click(object sender, EventArgs e)
+        {
+            if (!CamposVazios())
+            {
+                string codigo = textBoxId.Text;
+
+                if (!CodigoExistente(codigo))
+                {
+                    dataGridViewProdutos.Rows.Add(textBoxId.Text, textBoxDescricao.Text, 1, ValorProduto, ValorProduto * 1);
+                    CalcularTotalGeral();
+                }
+                else
+                {
+                    MessageBox.Show("O código já existe na grade. Por favor, insira um código único.", "Código Repetido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Todos os campos devem ser preenchidos. Por favor, preencha todos os campos.", "Campos Vazios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void buttonDeletar_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewProdutos.SelectedRows.Count > 0)
+            {
+                DataGridViewRow linhaSelecionada = dataGridViewProdutos.SelectedRows[0];
+                dataGridViewProdutos.Rows.Remove(linhaSelecionada);
+                CalcularTotalGeral();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecione uma linha para deletar.", "Nenhuma Linha Selecionada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void textBoxDesconto_Leave(object sender, EventArgs e)
+        {
+            string valorDesconto = textBoxDesconto.Text.Trim();
+
+            if (!valorDesconto.Contains(CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalSeparator))
+            {
+                textBoxDesconto.Text = $"{valorDesconto}{CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalSeparator}00";
+            }
+
+            if (decimal.TryParse(textBoxDesconto.Text, NumberStyles.Currency, CultureInfo.CurrentCulture, out decimal valor))
+            {
+                textBoxDesconto.Text = valor.ToString("C2");
                 CalcularTotalGeral();
             }
         }

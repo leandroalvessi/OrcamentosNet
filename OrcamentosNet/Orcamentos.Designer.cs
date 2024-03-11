@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Orcamentos));
             this.dataGridViewOrcamentos = new System.Windows.Forms.DataGridView();
             this.buttonExcluir = new System.Windows.Forms.Button();
@@ -96,6 +99,7 @@
             this.buttonExcluir.TabIndex = 7;
             this.buttonExcluir.Text = "Excluir";
             this.buttonExcluir.UseVisualStyleBackColor = true;
+            this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
             // 
             // buttonEditar
             // 
@@ -106,6 +110,7 @@
             this.buttonEditar.TabIndex = 6;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // buttonNovo
             // 
@@ -236,6 +241,9 @@
             // 
             // ValorDesconto
             // 
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.ValorDesconto.DefaultCellStyle = dataGridViewCellStyle2;
             this.ValorDesconto.HeaderText = "Desconto";
             this.ValorDesconto.MinimumWidth = 6;
             this.ValorDesconto.Name = "ValorDesconto";
@@ -244,6 +252,9 @@
             // 
             // Total
             // 
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Total.DefaultCellStyle = dataGridViewCellStyle3;
             this.Total.HeaderText = "Total";
             this.Total.MinimumWidth = 6;
             this.Total.Name = "Total";
@@ -252,6 +263,9 @@
             // 
             // DataCriacao
             // 
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            this.DataCriacao.DefaultCellStyle = dataGridViewCellStyle4;
             this.DataCriacao.HeaderText = "Data Criação";
             this.DataCriacao.MinimumWidth = 6;
             this.DataCriacao.Name = "DataCriacao";

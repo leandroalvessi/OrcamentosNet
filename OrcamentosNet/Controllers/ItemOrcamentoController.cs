@@ -74,6 +74,7 @@ namespace OrcamentosNet.Controllers
             try
             {
                 connection = connectionManager.GetConnection();
+                connection.Open();
 
                 using (var transaction = connection.BeginTransaction())
                 {
@@ -94,7 +95,7 @@ namespace OrcamentosNet.Controllers
                             ItemOrcamento item = new ItemOrcamento
                             {
                                 IdOrcamento = CodigoOrcamento,
-                                IdProduto = Convert.ToInt32(row.Cells["Id"].Value),
+                                IdProduto = Convert.ToInt32(row.Cells["Codigo"].Value),
                                 Quantidade = Convert.ToInt32(row.Cells["Quantidade"].Value)
                             };
 
