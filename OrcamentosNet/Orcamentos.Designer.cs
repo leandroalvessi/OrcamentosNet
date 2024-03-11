@@ -84,13 +84,13 @@
             this.dataGridViewOrcamentos.RowHeadersWidth = 51;
             this.dataGridViewOrcamentos.RowTemplate.Height = 24;
             this.dataGridViewOrcamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewOrcamentos.Size = new System.Drawing.Size(858, 376);
+            this.dataGridViewOrcamentos.Size = new System.Drawing.Size(1164, 473);
             this.dataGridViewOrcamentos.TabIndex = 2;
             // 
             // buttonExcluir
             // 
             this.buttonExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonExcluir.Location = new System.Drawing.Point(224, 394);
+            this.buttonExcluir.Location = new System.Drawing.Point(224, 491);
             this.buttonExcluir.Name = "buttonExcluir";
             this.buttonExcluir.Size = new System.Drawing.Size(100, 50);
             this.buttonExcluir.TabIndex = 7;
@@ -100,7 +100,7 @@
             // buttonEditar
             // 
             this.buttonEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonEditar.Location = new System.Drawing.Point(118, 394);
+            this.buttonEditar.Location = new System.Drawing.Point(118, 491);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(100, 50);
             this.buttonEditar.TabIndex = 6;
@@ -110,7 +110,7 @@
             // buttonNovo
             // 
             this.buttonNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonNovo.Location = new System.Drawing.Point(12, 394);
+            this.buttonNovo.Location = new System.Drawing.Point(12, 491);
             this.buttonNovo.Name = "buttonNovo";
             this.buttonNovo.Size = new System.Drawing.Size(100, 50);
             this.buttonNovo.TabIndex = 5;
@@ -154,7 +154,7 @@
             // 
             // Inscricao
             // 
-            this.Inscricao.HeaderText = "Inscricao";
+            this.Inscricao.HeaderText = "Inscrição";
             this.Inscricao.MinimumWidth = 6;
             this.Inscricao.Name = "Inscricao";
             this.Inscricao.ReadOnly = true;
@@ -236,7 +236,7 @@
             // 
             // ValorDesconto
             // 
-            this.ValorDesconto.HeaderText = "ValorDesconto";
+            this.ValorDesconto.HeaderText = "Desconto";
             this.ValorDesconto.MinimumWidth = 6;
             this.ValorDesconto.Name = "ValorDesconto";
             this.ValorDesconto.ReadOnly = true;
@@ -252,7 +252,7 @@
             // 
             // DataCriacao
             // 
-            this.DataCriacao.HeaderText = "DataCriacao";
+            this.DataCriacao.HeaderText = "Data Criação";
             this.DataCriacao.MinimumWidth = 6;
             this.DataCriacao.Name = "DataCriacao";
             this.DataCriacao.ReadOnly = true;
@@ -262,7 +262,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(882, 456);
+            this.ClientSize = new System.Drawing.Size(1188, 553);
             this.Controls.Add(this.buttonExcluir);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonNovo);

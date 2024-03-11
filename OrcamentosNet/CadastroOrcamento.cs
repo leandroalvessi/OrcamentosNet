@@ -111,5 +111,34 @@ namespace OrcamentosNet
         {
 
         }
+
+        private void textBoxDescricao_DoubleClick(object sender, EventArgs e)
+        {
+            ListaProduto listaProduto = new ListaProduto();
+            listaProduto.ShowDialog();
+
+            textBoxId.Text = listaProduto.IdProduto.ToString();
+            textBoxDescricao.Text = listaProduto.DescricaoProduto;
+            ValorProduto = listaProduto.ValorProduto;
+        }
+
+        private void dataGridViewProdutos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridViewProdutos.Columns["Quantidade"].Index && e.RowIndex != -1)
+            {
+                int quantidade;
+                if (!int.TryParse(dataGridViewProdutos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), out quantidade) || quantidade <= 0)
+                {
+                    MessageBox.Show("A quantidade deve ser um número inteiro maior que zero.");
+                    dataGridViewProdutos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 1;
+                    return;
+                }
+
+                decimal valor = Convert.ToDecimal(dataGridViewProdutos.Rows[e.RowIndex].Cells["Valor"].Value);
+                decimal total = quantidade * valor;
+                dataGridViewProdutos.Rows[e.RowIndex].Cells["Total"].Value = total;
+                CalcularTotalGeral();
+            }
+        }
     }
 }

@@ -32,6 +32,8 @@ namespace OrcamentosNet.Controllers
 
                 using (SQLiteCommand command = new SQLiteCommand(query, connection))
                 {
+                    connection.Open();
+
                     command.Parameters.AddWithValue("@IdOrcamento", IdItems);
 
                     using (SQLiteDataReader reader = command.ExecuteReader())

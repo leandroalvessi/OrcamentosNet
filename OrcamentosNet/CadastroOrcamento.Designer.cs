@@ -321,6 +321,7 @@
             this.dataGridViewProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewProdutos.Size = new System.Drawing.Size(824, 193);
             this.dataGridViewProdutos.TabIndex = 22;
+            this.dataGridViewProdutos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProdutos_CellEndEdit);
             // 
             // Nome
             // 
@@ -477,8 +478,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxDescricao.Location = new System.Drawing.Point(77, 160);
             this.textBoxDescricao.Name = "textBoxDescricao";
+            this.textBoxDescricao.ReadOnly = true;
             this.textBoxDescricao.Size = new System.Drawing.Size(493, 22);
             this.textBoxDescricao.TabIndex = 26;
+            this.textBoxDescricao.DoubleClick += new System.EventHandler(this.textBoxDescricao_DoubleClick);
             // 
             // labelDescricao
             // 
@@ -532,13 +535,14 @@
             this.textBoxTotalGeral.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxTotalGeral.Location = new System.Drawing.Point(739, 416);
             this.textBoxTotalGeral.Name = "textBoxTotalGeral";
+            this.textBoxTotalGeral.ReadOnly = true;
             this.textBoxTotalGeral.Size = new System.Drawing.Size(97, 22);
             this.textBoxTotalGeral.TabIndex = 31;
             // 
             // buttonSalva
             // 
             this.buttonSalva.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSalva.Location = new System.Drawing.Point(15, 388);
+            this.buttonSalva.Location = new System.Drawing.Point(11, 388);
             this.buttonSalva.Name = "buttonSalva";
             this.buttonSalva.Size = new System.Drawing.Size(100, 50);
             this.buttonSalva.TabIndex = 32;

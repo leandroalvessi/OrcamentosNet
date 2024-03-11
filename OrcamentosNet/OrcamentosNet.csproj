@@ -105,6 +105,12 @@
     <Compile Include="Db\DatabaseManager.cs" />
     <Compile Include="Db\ConnectionString.cs" />
     <Compile Include="Db\SQLiteConnectionManager.cs" />
+    <Compile Include="ListaProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaProduto.Designer.cs">
+      <DependentUpon>ListaProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ItemOrcamento.cs" />
     <Compile Include="Models\ItemOrcamentoGridView.cs" />
     <Compile Include="Models\Orcamento.cs" />
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadastroProduto.resx">
       <DependentUpon>CadastroProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaProduto.resx">
+      <DependentUpon>ListaProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Orcamentos.resx">
       <DependentUpon>Orcamentos.cs</DependentUpon>
