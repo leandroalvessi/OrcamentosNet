@@ -93,7 +93,7 @@
             // 
             // radioButtonCPF
             // 
-            this.radioButtonCPF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.radioButtonCPF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonCPF.AutoSize = true;
             this.radioButtonCPF.Location = new System.Drawing.Point(342, 30);
             this.radioButtonCPF.Name = "radioButtonCPF";
@@ -106,7 +106,7 @@
             // 
             // radioButtonCNPJ
             // 
-            this.radioButtonCNPJ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.radioButtonCNPJ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonCNPJ.AutoSize = true;
             this.radioButtonCNPJ.Location = new System.Drawing.Point(396, 30);
             this.radioButtonCNPJ.Name = "radioButtonCNPJ";
@@ -119,7 +119,7 @@
             // 
             // labelCPFCNPJ
             // 
-            this.labelCPFCNPJ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelCPFCNPJ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelCPFCNPJ.AutoSize = true;
             this.labelCPFCNPJ.Location = new System.Drawing.Point(459, 4);
             this.labelCPFCNPJ.Name = "labelCPFCNPJ";
@@ -129,7 +129,7 @@
             // 
             // maskedTextBoxCPFCNPJ
             // 
-            this.maskedTextBoxCPFCNPJ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBoxCPFCNPJ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maskedTextBoxCPFCNPJ.Location = new System.Drawing.Point(462, 27);
             this.maskedTextBoxCPFCNPJ.Mask = "000,000,000-00";
             this.maskedTextBoxCPFCNPJ.Name = "maskedTextBoxCPFCNPJ";
@@ -138,7 +138,7 @@
             // 
             // maskedTextBoxTelefone1
             // 
-            this.maskedTextBoxTelefone1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBoxTelefone1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maskedTextBoxTelefone1.Location = new System.Drawing.Point(614, 27);
             this.maskedTextBoxTelefone1.Mask = "(99) 0 0000-0000";
             this.maskedTextBoxTelefone1.Name = "maskedTextBoxTelefone1";
@@ -147,7 +147,7 @@
             // 
             // labelTelefone1
             // 
-            this.labelTelefone1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTelefone1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTelefone1.AutoSize = true;
             this.labelTelefone1.Location = new System.Drawing.Point(611, 5);
             this.labelTelefone1.Name = "labelTelefone1";
@@ -157,7 +157,7 @@
             // 
             // labelTelefone2
             // 
-            this.labelTelefone2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTelefone2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTelefone2.AutoSize = true;
             this.labelTelefone2.Location = new System.Drawing.Point(737, 4);
             this.labelTelefone2.Name = "labelTelefone2";
@@ -167,7 +167,7 @@
             // 
             // maskedTextBoxTelefone2
             // 
-            this.maskedTextBoxTelefone2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBoxTelefone2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maskedTextBoxTelefone2.Location = new System.Drawing.Point(740, 27);
             this.maskedTextBoxTelefone2.Mask = "(99) 0 0000-0000";
             this.maskedTextBoxTelefone2.Name = "maskedTextBoxTelefone2";
@@ -222,7 +222,7 @@
             // 
             this.labelTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTotal.AutoSize = true;
-            this.labelTotal.Location = new System.Drawing.Point(719, 422);
+            this.labelTotal.Location = new System.Drawing.Point(719, 523);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(38, 16);
             this.labelTotal.TabIndex = 14;
@@ -363,7 +363,7 @@
             // textBoxTotalGeral
             // 
             this.textBoxTotalGeral.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTotalGeral.Location = new System.Drawing.Point(763, 416);
+            this.textBoxTotalGeral.Location = new System.Drawing.Point(763, 517);
             this.textBoxTotalGeral.Name = "textBoxTotalGeral";
             this.textBoxTotalGeral.ReadOnly = true;
             this.textBoxTotalGeral.Size = new System.Drawing.Size(97, 22);
@@ -372,7 +372,7 @@
             // buttonSalva
             // 
             this.buttonSalva.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSalva.Location = new System.Drawing.Point(11, 388);
+            this.buttonSalva.Location = new System.Drawing.Point(11, 489);
             this.buttonSalva.Name = "buttonSalva";
             this.buttonSalva.Size = new System.Drawing.Size(100, 50);
             this.buttonSalva.TabIndex = 32;
@@ -409,7 +409,7 @@
             this.dataGridViewProdutos.RowHeadersWidth = 51;
             this.dataGridViewProdutos.RowTemplate.Height = 24;
             this.dataGridViewProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewProdutos.Size = new System.Drawing.Size(848, 193);
+            this.dataGridViewProdutos.Size = new System.Drawing.Size(848, 294);
             this.dataGridViewProdutos.TabIndex = 22;
             this.dataGridViewProdutos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProdutos_CellEndEdit);
             // 
@@ -462,7 +462,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 450);
+            this.ClientSize = new System.Drawing.Size(871, 551);
             this.Controls.Add(this.labelBairro);
             this.Controls.Add(this.buttonSalva);
             this.Controls.Add(this.textBoxTotalGeral);
