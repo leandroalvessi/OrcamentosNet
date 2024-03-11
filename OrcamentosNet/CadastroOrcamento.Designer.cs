@@ -45,14 +45,14 @@
             this.textBoxEndereco = new System.Windows.Forms.TextBox();
             this.labelEndereco = new System.Windows.Forms.Label();
             this.textBoxBairro = new System.Windows.Forms.TextBox();
-            this.labelBairro = new System.Windows.Forms.Label();
+            this.labelTotal = new System.Windows.Forms.Label();
             this.textBoxUF = new System.Windows.Forms.TextBox();
             this.labelUF = new System.Windows.Forms.Label();
             this.textBoxCidade = new System.Windows.Forms.TextBox();
             this.labelCidade = new System.Windows.Forms.Label();
             this.maskedTextBoxCEP = new System.Windows.Forms.MaskedTextBox();
             this.labelCEP = new System.Windows.Forms.Label();
-            this.ItemOrcamentoGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewProdutos = new System.Windows.Forms.DataGridView();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoInscricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,7 +76,10 @@
             this.labelDesconto = new System.Windows.Forms.Label();
             this.buttonAdiciona = new System.Windows.Forms.Button();
             this.buttonDeletar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemOrcamentoGridView)).BeginInit();
+            this.textBoxTotalGeral = new System.Windows.Forms.TextBox();
+            this.buttonSalva = new System.Windows.Forms.Button();
+            this.labelBairro = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutos)).BeginInit();
             this.SuspendLayout();
             // 
             // labelNome
@@ -90,26 +93,31 @@
             // 
             // textBoxNome
             // 
+            this.textBoxNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxNome.Location = new System.Drawing.Point(12, 28);
             this.textBoxNome.Name = "textBoxNome";
-            this.textBoxNome.Size = new System.Drawing.Size(274, 22);
+            this.textBoxNome.Size = new System.Drawing.Size(317, 22);
             this.textBoxNome.TabIndex = 1;
             // 
             // radioButtonCPF
             // 
+            this.radioButtonCPF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonCPF.AutoSize = true;
-            this.radioButtonCPF.Location = new System.Drawing.Point(292, 30);
+            this.radioButtonCPF.Location = new System.Drawing.Point(335, 28);
             this.radioButtonCPF.Name = "radioButtonCPF";
             this.radioButtonCPF.Size = new System.Drawing.Size(54, 20);
             this.radioButtonCPF.TabIndex = 2;
             this.radioButtonCPF.TabStop = true;
             this.radioButtonCPF.Text = "CPF";
             this.radioButtonCPF.UseVisualStyleBackColor = true;
+            this.radioButtonCPF.CheckedChanged += new System.EventHandler(this.radioButtonCPF_CheckedChanged);
             // 
             // radioButtonCNPJ
             // 
+            this.radioButtonCNPJ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonCNPJ.AutoSize = true;
-            this.radioButtonCNPJ.Location = new System.Drawing.Point(352, 29);
+            this.radioButtonCNPJ.Location = new System.Drawing.Point(395, 29);
             this.radioButtonCNPJ.Name = "radioButtonCNPJ";
             this.radioButtonCNPJ.Size = new System.Drawing.Size(63, 20);
             this.radioButtonCNPJ.TabIndex = 3;
@@ -119,8 +127,9 @@
             // 
             // labelCPFCNPJ
             // 
+            this.labelCPFCNPJ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelCPFCNPJ.AutoSize = true;
-            this.labelCPFCNPJ.Location = new System.Drawing.Point(418, 4);
+            this.labelCPFCNPJ.Location = new System.Drawing.Point(461, 5);
             this.labelCPFCNPJ.Name = "labelCPFCNPJ";
             this.labelCPFCNPJ.Size = new System.Drawing.Size(68, 16);
             this.labelCPFCNPJ.TabIndex = 4;
@@ -128,51 +137,58 @@
             // 
             // maskedTextBoxCPFCNPJ
             // 
-            this.maskedTextBoxCPFCNPJ.Location = new System.Drawing.Point(421, 27);
+            this.maskedTextBoxCPFCNPJ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBoxCPFCNPJ.Location = new System.Drawing.Point(464, 27);
             this.maskedTextBoxCPFCNPJ.Mask = "000,000,000-00";
             this.maskedTextBoxCPFCNPJ.Name = "maskedTextBoxCPFCNPJ";
-            this.maskedTextBoxCPFCNPJ.Size = new System.Drawing.Size(100, 22);
+            this.maskedTextBoxCPFCNPJ.Size = new System.Drawing.Size(120, 22);
             this.maskedTextBoxCPFCNPJ.TabIndex = 5;
             // 
             // maskedTextBoxTelefone1
             // 
-            this.maskedTextBoxTelefone1.Location = new System.Drawing.Point(527, 27);
+            this.maskedTextBoxTelefone1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBoxTelefone1.Location = new System.Drawing.Point(590, 27);
             this.maskedTextBoxTelefone1.Mask = "(99) 0 0000-0000";
             this.maskedTextBoxTelefone1.Name = "maskedTextBoxTelefone1";
-            this.maskedTextBoxTelefone1.Size = new System.Drawing.Size(100, 22);
+            this.maskedTextBoxTelefone1.Size = new System.Drawing.Size(120, 22);
             this.maskedTextBoxTelefone1.TabIndex = 7;
             // 
             // labelTelefone1
             // 
+            this.labelTelefone1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTelefone1.AutoSize = true;
-            this.labelTelefone1.Location = new System.Drawing.Point(524, 4);
+            this.labelTelefone1.Location = new System.Drawing.Point(587, 5);
             this.labelTelefone1.Name = "labelTelefone1";
-            this.labelTelefone1.Size = new System.Drawing.Size(89, 20);
+            this.labelTelefone1.Size = new System.Drawing.Size(71, 16);
             this.labelTelefone1.TabIndex = 6;
             this.labelTelefone1.Text = "Telefone 1";
             // 
             // labelTelefone2
             // 
+            this.labelTelefone2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTelefone2.AutoSize = true;
-            this.labelTelefone2.Location = new System.Drawing.Point(630, 4);
+            this.labelTelefone2.Location = new System.Drawing.Point(713, 4);
             this.labelTelefone2.Name = "labelTelefone2";
-            this.labelTelefone2.Size = new System.Drawing.Size(89, 20);
+            this.labelTelefone2.Size = new System.Drawing.Size(71, 16);
             this.labelTelefone2.TabIndex = 8;
             this.labelTelefone2.Text = "Telefone 2";
             // 
             // maskedTextBoxTelefone2
             // 
-            this.maskedTextBoxTelefone2.Location = new System.Drawing.Point(633, 27);
+            this.maskedTextBoxTelefone2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBoxTelefone2.Location = new System.Drawing.Point(716, 27);
             this.maskedTextBoxTelefone2.Mask = "(99) 0 0000-0000";
             this.maskedTextBoxTelefone2.Name = "maskedTextBoxTelefone2";
-            this.maskedTextBoxTelefone2.Size = new System.Drawing.Size(100, 22);
+            this.maskedTextBoxTelefone2.Size = new System.Drawing.Size(120, 22);
             this.maskedTextBoxTelefone2.TabIndex = 9;
             // 
             // textBoxEmail
             // 
+            this.textBoxEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxEmail.Location = new System.Drawing.Point(12, 72);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(274, 22);
+            this.textBoxEmail.Size = new System.Drawing.Size(317, 22);
             this.textBoxEmail.TabIndex = 11;
             // 
             // labelEmail
@@ -180,41 +196,45 @@
             this.labelEmail.AutoSize = true;
             this.labelEmail.Location = new System.Drawing.Point(12, 53);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(56, 20);
+            this.labelEmail.Size = new System.Drawing.Size(45, 16);
             this.labelEmail.TabIndex = 10;
             this.labelEmail.Text = "E-Mail";
             // 
             // textBoxEndereco
             // 
-            this.textBoxEndereco.Location = new System.Drawing.Point(292, 72);
+            this.textBoxEndereco.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxEndereco.Location = new System.Drawing.Point(335, 72);
             this.textBoxEndereco.Name = "textBoxEndereco";
-            this.textBoxEndereco.Size = new System.Drawing.Size(274, 22);
+            this.textBoxEndereco.Size = new System.Drawing.Size(333, 22);
             this.textBoxEndereco.TabIndex = 13;
             // 
             // labelEndereco
             // 
+            this.labelEndereco.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelEndereco.AutoSize = true;
-            this.labelEndereco.Location = new System.Drawing.Point(292, 53);
+            this.labelEndereco.Location = new System.Drawing.Point(335, 52);
             this.labelEndereco.Name = "labelEndereco";
-            this.labelEndereco.Size = new System.Drawing.Size(83, 20);
+            this.labelEndereco.Size = new System.Drawing.Size(66, 16);
             this.labelEndereco.TabIndex = 12;
             this.labelEndereco.Text = "Endereço";
             // 
             // textBoxBairro
             // 
-            this.textBoxBairro.Location = new System.Drawing.Point(572, 72);
+            this.textBoxBairro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxBairro.Location = new System.Drawing.Point(674, 72);
             this.textBoxBairro.Name = "textBoxBairro";
             this.textBoxBairro.Size = new System.Drawing.Size(161, 22);
             this.textBoxBairro.TabIndex = 15;
             // 
-            // labelBairro
+            // labelTotal
             // 
-            this.labelBairro.AutoSize = true;
-            this.labelBairro.Location = new System.Drawing.Point(572, 53);
-            this.labelBairro.Name = "labelBairro";
-            this.labelBairro.Size = new System.Drawing.Size(43, 16);
-            this.labelBairro.TabIndex = 14;
-            this.labelBairro.Text = "Bairro";
+            this.labelTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Location = new System.Drawing.Point(695, 422);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(38, 16);
+            this.labelTotal.TabIndex = 14;
+            this.labelTotal.Text = "Total";
             // 
             // textBoxUF
             // 
@@ -228,15 +248,17 @@
             this.labelUF.AutoSize = true;
             this.labelUF.Location = new System.Drawing.Point(12, 97);
             this.labelUF.Name = "labelUF";
-            this.labelUF.Size = new System.Drawing.Size(31, 20);
+            this.labelUF.Size = new System.Drawing.Size(25, 16);
             this.labelUF.TabIndex = 16;
             this.labelUF.Text = "UF";
             // 
             // textBoxCidade
             // 
+            this.textBoxCidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxCidade.Location = new System.Drawing.Point(74, 116);
             this.textBoxCidade.Name = "textBoxCidade";
-            this.textBoxCidade.Size = new System.Drawing.Size(212, 22);
+            this.textBoxCidade.Size = new System.Drawing.Size(255, 22);
             this.textBoxCidade.TabIndex = 19;
             // 
             // labelCidade
@@ -244,13 +266,14 @@
             this.labelCidade.AutoSize = true;
             this.labelCidade.Location = new System.Drawing.Point(74, 97);
             this.labelCidade.Name = "labelCidade";
-            this.labelCidade.Size = new System.Drawing.Size(64, 20);
+            this.labelCidade.Size = new System.Drawing.Size(51, 16);
             this.labelCidade.TabIndex = 18;
             this.labelCidade.Text = "Cidade";
             // 
             // maskedTextBoxCEP
             // 
-            this.maskedTextBoxCEP.Location = new System.Drawing.Point(292, 116);
+            this.maskedTextBoxCEP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBoxCEP.Location = new System.Drawing.Point(335, 116);
             this.maskedTextBoxCEP.Mask = "00000-000";
             this.maskedTextBoxCEP.Name = "maskedTextBoxCEP";
             this.maskedTextBoxCEP.Size = new System.Drawing.Size(100, 22);
@@ -258,21 +281,22 @@
             // 
             // labelCEP
             // 
+            this.labelCEP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelCEP.AutoSize = true;
-            this.labelCEP.Location = new System.Drawing.Point(292, 97);
+            this.labelCEP.Location = new System.Drawing.Point(335, 97);
             this.labelCEP.Name = "labelCEP";
             this.labelCEP.Size = new System.Drawing.Size(34, 16);
             this.labelCEP.TabIndex = 20;
             this.labelCEP.Text = "CEP";
             // 
-            // ItemOrcamentoGridView
+            // dataGridViewProdutos
             // 
-            this.ItemOrcamentoGridView.AllowUserToAddRows = false;
-            this.ItemOrcamentoGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridViewProdutos.AllowUserToAddRows = false;
+            this.dataGridViewProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ItemOrcamentoGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ItemOrcamentoGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nome,
             this.Cep,
             this.TipoInscricao,
@@ -288,15 +312,15 @@
             this.ValorDesconto,
             this.Total,
             this.DataCriacao});
-            this.ItemOrcamentoGridView.Location = new System.Drawing.Point(11, 272);
-            this.ItemOrcamentoGridView.Name = "ItemOrcamentoGridView";
-            this.ItemOrcamentoGridView.ReadOnly = true;
-            this.ItemOrcamentoGridView.RowHeadersVisible = false;
-            this.ItemOrcamentoGridView.RowHeadersWidth = 51;
-            this.ItemOrcamentoGridView.RowTemplate.Height = 24;
-            this.ItemOrcamentoGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ItemOrcamentoGridView.Size = new System.Drawing.Size(721, 166);
-            this.ItemOrcamentoGridView.TabIndex = 22;
+            this.dataGridViewProdutos.Location = new System.Drawing.Point(11, 189);
+            this.dataGridViewProdutos.Name = "dataGridViewProdutos";
+            this.dataGridViewProdutos.ReadOnly = true;
+            this.dataGridViewProdutos.RowHeadersVisible = false;
+            this.dataGridViewProdutos.RowHeadersWidth = 51;
+            this.dataGridViewProdutos.RowTemplate.Height = 24;
+            this.dataGridViewProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewProdutos.Size = new System.Drawing.Size(824, 193);
+            this.dataGridViewProdutos.TabIndex = 22;
             // 
             // Nome
             // 
@@ -436,6 +460,7 @@
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(56, 22);
             this.textBoxId.TabIndex = 24;
+            this.textBoxId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxId_KeyPress);
             // 
             // labelId
             // 
@@ -448,9 +473,11 @@
             // 
             // textBoxDescricao
             // 
+            this.textBoxDescricao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxDescricao.Location = new System.Drawing.Point(77, 160);
             this.textBoxDescricao.Name = "textBoxDescricao";
-            this.textBoxDescricao.Size = new System.Drawing.Size(212, 22);
+            this.textBoxDescricao.Size = new System.Drawing.Size(493, 22);
             this.textBoxDescricao.TabIndex = 26;
             // 
             // labelDescricao
@@ -464,15 +491,17 @@
             // 
             // textBoxDesconto
             // 
-            this.textBoxDesconto.Location = new System.Drawing.Point(295, 160);
+            this.textBoxDesconto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxDesconto.Location = new System.Drawing.Point(576, 160);
             this.textBoxDesconto.Name = "textBoxDesconto";
             this.textBoxDesconto.Size = new System.Drawing.Size(97, 22);
             this.textBoxDesconto.TabIndex = 28;
             // 
             // labelDesconto
             // 
+            this.labelDesconto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelDesconto.AutoSize = true;
-            this.labelDesconto.Location = new System.Drawing.Point(295, 141);
+            this.labelDesconto.Location = new System.Drawing.Point(573, 141);
             this.labelDesconto.Name = "labelDesconto";
             this.labelDesconto.Size = new System.Drawing.Size(65, 16);
             this.labelDesconto.TabIndex = 27;
@@ -480,7 +509,8 @@
             // 
             // buttonAdiciona
             // 
-            this.buttonAdiciona.Location = new System.Drawing.Point(398, 160);
+            this.buttonAdiciona.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAdiciona.Location = new System.Drawing.Point(679, 160);
             this.buttonAdiciona.Name = "buttonAdiciona";
             this.buttonAdiciona.Size = new System.Drawing.Size(75, 23);
             this.buttonAdiciona.TabIndex = 29;
@@ -489,18 +519,50 @@
             // 
             // buttonDeletar
             // 
-            this.buttonDeletar.Location = new System.Drawing.Point(479, 160);
+            this.buttonDeletar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDeletar.Location = new System.Drawing.Point(760, 160);
             this.buttonDeletar.Name = "buttonDeletar";
             this.buttonDeletar.Size = new System.Drawing.Size(75, 23);
             this.buttonDeletar.TabIndex = 30;
             this.buttonDeletar.Text = "Deletar";
             this.buttonDeletar.UseVisualStyleBackColor = true;
             // 
+            // textBoxTotalGeral
+            // 
+            this.textBoxTotalGeral.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTotalGeral.Location = new System.Drawing.Point(739, 416);
+            this.textBoxTotalGeral.Name = "textBoxTotalGeral";
+            this.textBoxTotalGeral.Size = new System.Drawing.Size(97, 22);
+            this.textBoxTotalGeral.TabIndex = 31;
+            // 
+            // buttonSalva
+            // 
+            this.buttonSalva.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonSalva.Location = new System.Drawing.Point(15, 388);
+            this.buttonSalva.Name = "buttonSalva";
+            this.buttonSalva.Size = new System.Drawing.Size(100, 50);
+            this.buttonSalva.TabIndex = 32;
+            this.buttonSalva.Text = "Novo";
+            this.buttonSalva.UseVisualStyleBackColor = true;
+            // 
+            // labelBairro
+            // 
+            this.labelBairro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelBairro.AutoSize = true;
+            this.labelBairro.Location = new System.Drawing.Point(676, 53);
+            this.labelBairro.Name = "labelBairro";
+            this.labelBairro.Size = new System.Drawing.Size(43, 16);
+            this.labelBairro.TabIndex = 33;
+            this.labelBairro.Text = "Bairro";
+            // 
             // CadastroOrcamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 450);
+            this.ClientSize = new System.Drawing.Size(847, 450);
+            this.Controls.Add(this.labelBairro);
+            this.Controls.Add(this.buttonSalva);
+            this.Controls.Add(this.textBoxTotalGeral);
             this.Controls.Add(this.buttonDeletar);
             this.Controls.Add(this.buttonAdiciona);
             this.Controls.Add(this.textBoxDesconto);
@@ -509,7 +571,7 @@
             this.Controls.Add(this.labelDescricao);
             this.Controls.Add(this.textBoxId);
             this.Controls.Add(this.labelId);
-            this.Controls.Add(this.ItemOrcamentoGridView);
+            this.Controls.Add(this.dataGridViewProdutos);
             this.Controls.Add(this.maskedTextBoxCEP);
             this.Controls.Add(this.labelCEP);
             this.Controls.Add(this.textBoxCidade);
@@ -517,7 +579,7 @@
             this.Controls.Add(this.textBoxUF);
             this.Controls.Add(this.labelUF);
             this.Controls.Add(this.textBoxBairro);
-            this.Controls.Add(this.labelBairro);
+            this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.textBoxEndereco);
             this.Controls.Add(this.labelEndereco);
             this.Controls.Add(this.textBoxEmail);
@@ -533,9 +595,12 @@
             this.Controls.Add(this.textBoxNome);
             this.Controls.Add(this.labelNome);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CadastroOrcamento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CadastroOrcamento";
-            ((System.ComponentModel.ISupportInitialize)(this.ItemOrcamentoGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -558,14 +623,14 @@
         private System.Windows.Forms.TextBox textBoxEndereco;
         private System.Windows.Forms.Label labelEndereco;
         private System.Windows.Forms.TextBox textBoxBairro;
-        private System.Windows.Forms.Label labelBairro;
+        private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.TextBox textBoxUF;
         private System.Windows.Forms.Label labelUF;
         private System.Windows.Forms.TextBox textBoxCidade;
         private System.Windows.Forms.Label labelCidade;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCEP;
         private System.Windows.Forms.Label labelCEP;
-        private System.Windows.Forms.DataGridView ItemOrcamentoGridView;
+        private System.Windows.Forms.DataGridView dataGridViewProdutos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cep;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoInscricao;
@@ -589,5 +654,8 @@
         private System.Windows.Forms.Label labelDesconto;
         private System.Windows.Forms.Button buttonAdiciona;
         private System.Windows.Forms.Button buttonDeletar;
+        private System.Windows.Forms.TextBox textBoxTotalGeral;
+        private System.Windows.Forms.Button buttonSalva;
+        private System.Windows.Forms.Label labelBairro;
     }
 }

@@ -1,9 +1,11 @@
-﻿using OrcamentosNet.Models;
+﻿using OrcamentosNet.Controllers;
+using OrcamentosNet.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +55,61 @@ namespace OrcamentosNet
                 bSalva = false;
             }
             AtualizaGrid();
+        }
+
+        public void AtualizaGrid()
+        {
+            ItemOrcamentoController itemOrcamentoController = new ItemOrcamentoController();
+            List<ItemOrcamentoGridView> itemOrcamentoGridView = new List<ItemOrcamentoGridView>();
+            itemOrcamentoGridView = itemOrcamentoController.ObterItemsOrcamentos(this.id);
+
+            dataGridViewProdutos.Rows.Clear();
+            foreach (ItemOrcamentoGridView item in itemOrcamentoGridView)
+            {
+                dataGridViewProdutos.Rows.Add(item.Id, item.Descricao, item.Quantidade, item.Valor, item.Valor * item.Quantidade);
+            }
+            CalcularTotalGeral();
+        }
+
+        private void CalcularTotalGeral()
+        {
+            decimal totalGeral = 0;
+
+            foreach (DataGridViewRow row in dataGridViewProdutos.Rows)
+            {
+                if (decimal.TryParse(row.Cells["Quantidade"].Value.ToString(), out decimal quantidade) &&
+                    decimal.TryParse(row.Cells["Valor"].Value.ToString(), out decimal valor))
+                {
+                    decimal totalItem = quantidade * valor;
+                    row.Cells["Total"].Value = totalItem;
+                    totalGeral += totalItem;
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(textBoxDesconto.Text))
+            {
+                string valorFormatado = textBoxDesconto.Text
+                    .Replace(CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol, "")
+                    .Replace(CultureInfo.CurrentCulture.NumberFormat.NumberGroupSeparator, "")
+                    .Trim();
+
+                if (decimal.TryParse(valorFormatado, NumberStyles.Currency, CultureInfo.CurrentCulture, out decimal valorConvertido))
+                {
+                    totalGeral -= valorConvertido;
+                }
+            }
+
+            textBoxTotalGeral.Text = totalGeral.ToString("C2");
+        }
+
+        private void textBoxId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //
+        }
+
+        private void radioButtonCPF_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
