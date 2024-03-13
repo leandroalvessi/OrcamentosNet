@@ -42,7 +42,7 @@ namespace OrcamentosNet.Controllers
                         {
                             while (reader.Read())
                             {
-                                itemOrcamentoGridView.Add(new ItemOrcamentoGridView(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3)));
+                                itemOrcamentoGridView.Add(new ItemOrcamentoGridView(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetDecimal(3)));
                             }
                         }
                         else
