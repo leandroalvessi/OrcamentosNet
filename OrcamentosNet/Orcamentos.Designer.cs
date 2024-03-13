@@ -54,6 +54,7 @@
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonNovo = new System.Windows.Forms.Button();
             this.buttonImprimir = new System.Windows.Forms.Button();
+            this.checkBoxVisualizaBrowser = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrcamentos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -284,11 +285,23 @@
             this.buttonImprimir.UseVisualStyleBackColor = true;
             this.buttonImprimir.Click += new System.EventHandler(this.buttonImprimir_Click);
             // 
+            // checkBoxVisualizaBrowser
+            // 
+            this.checkBoxVisualizaBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxVisualizaBrowser.AutoSize = true;
+            this.checkBoxVisualizaBrowser.Location = new System.Drawing.Point(999, 521);
+            this.checkBoxVisualizaBrowser.Name = "checkBoxVisualizaBrowser";
+            this.checkBoxVisualizaBrowser.Size = new System.Drawing.Size(177, 20);
+            this.checkBoxVisualizaBrowser.TabIndex = 9;
+            this.checkBoxVisualizaBrowser.Text = "Visualizar no Navegador";
+            this.checkBoxVisualizaBrowser.UseVisualStyleBackColor = true;
+            // 
             // Orcamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1188, 553);
+            this.Controls.Add(this.checkBoxVisualizaBrowser);
             this.Controls.Add(this.buttonImprimir);
             this.Controls.Add(this.buttonExcluir);
             this.Controls.Add(this.buttonEditar);
@@ -302,6 +315,7 @@
             this.Text = "Orçamentos";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrcamentos)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -328,5 +342,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataCriacao;
         private System.Windows.Forms.Button buttonImprimir;
+        private System.Windows.Forms.CheckBox checkBoxVisualizaBrowser;
     }
 }

@@ -14,6 +14,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PdfiumViewer;
+using PdfDocument = PdfiumViewer.PdfDocument;
 
 namespace OrcamentosNet
 {
@@ -152,7 +154,6 @@ namespace OrcamentosNet
                     doc.Add(new Paragraph($"Tipo de Inscrição: {orcamento.TipoInscricao}"));
                     // Adicione as outras propriedades do orcamento conforme necessário
 
-                    MessageBox.Show($"Documento PDF gerado com sucesso em: {filePath}", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -165,7 +166,15 @@ namespace OrcamentosNet
                     // Abre o PDF após a sua geração
                     if (File.Exists(filePath))
                     {
-                        Process.Start(filePath);
+                        if (checkBoxVisualizaBrowser.Checked)
+                        {
+                            Process.Start(filePath);
+                        } 
+                        else
+                        {
+                            VisualizarPdf visualizarPdf = new VisualizarPdf(filePath);
+                            visualizarPdf.Show();
+                        }
                     }
                 }
             }
