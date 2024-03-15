@@ -119,6 +119,7 @@
     <Compile Include="Models\ItemOrcamento.cs" />
     <Compile Include="Models\ItemOrcamentoGridView.cs" />
     <Compile Include="Models\Orcamento.cs" />
+    <Compile Include="Models\PdfCabecalhoRodape.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Orcamentos.cs">
       <SubType>Form</SubType>

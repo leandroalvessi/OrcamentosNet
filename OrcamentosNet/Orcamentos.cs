@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PdfiumViewer;
 using PdfDocument = PdfiumViewer.PdfDocument;
+using System.Xml.Linq;
 
 namespace OrcamentosNet
 {
@@ -137,12 +138,15 @@ namespace OrcamentosNet
                 orcamento.ValorDesconto = Convert.ToDecimal(dataGridViewOrcamentos.Rows[rowIndex].Cells[13].Value.ToString());
 
                 // Criação do documento PDF
-                Document doc = new Document();
+                Document doc = new Document(PageSize.A4);
                 string filePath = "orcamento.pdf";
 
                 try
                 {
-                    PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
+                    PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
+
+                    // Adiciona o cabeçalho e rodapé
+                    writer.PageEvent = new PdfCabecalhoRodape();
 
                     doc.Open();
 
@@ -163,7 +167,6 @@ namespace OrcamentosNet
                 {
                     doc.Close();
 
-                    // Abre o PDF após a sua geração
                     if (File.Exists(filePath))
                     {
                         if (checkBoxVisualizaBrowser.Checked)
