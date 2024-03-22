@@ -150,6 +150,14 @@ namespace OrcamentosNet
 
                     doc.Open();
 
+                    // Adiciona espaçamento após o cabeçalho
+                    int numberOfBlankLines = 8; // Define o número de linhas em branco desejadas
+
+                    for (int i = 0; i < numberOfBlankLines; i++)
+                    {
+                        doc.Add(new Paragraph("\n")); // Espaço em branco
+                    }
+
                     // Adiciona os dados do orcamento ao documento
                     doc.Add(new Paragraph("Detalhes do Orçamento:"));
                     doc.Add(new Paragraph($"ID: {orcamento.Id}"));

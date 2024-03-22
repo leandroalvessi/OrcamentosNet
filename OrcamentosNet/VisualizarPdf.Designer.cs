@@ -40,6 +40,8 @@
             this.Name = "VisualizarPdf";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VisualizarPdf";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VisualizarPdf_FormClosing);
+            this.Load += new System.EventHandler(this.VisualizarPdf_Load);
             this.ResumeLayout(false);
 
         }

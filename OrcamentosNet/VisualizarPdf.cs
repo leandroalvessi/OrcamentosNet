@@ -39,23 +39,26 @@ namespace OrcamentosNet
         {
             try
             {
-                // Ler o arquivo PDF em um array de bytes
-                byte[] bytes = File.ReadAllBytes(filePath);
-
-                // Criar um MemoryStream a partir do array de bytes
-                using (MemoryStream stream = new MemoryStream(bytes))
-                {
-                    // Carregar o documento PDF a partir do MemoryStream
-                    PdfDocument pdfDocument = PdfDocument.Load(stream);
-
-                    // Exibir o documento PDF no PdfViewer
-                    pdf.Document = pdfDocument;
-                }
+                pdf.Document = PdfiumViewer.PdfDocument.Load(filePath);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ocorreu um erro ao carregar o PDF: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void VisualizarPdf_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Verificar se o documento PDF está aberto e, se estiver, fechá-lo
+            if (pdf.Document != null)
+            {
+                pdf.Document.Dispose();
+            }
+        }
+
+        private void VisualizarPdf_Load(object sender, EventArgs e)
+        {
+            this.FormClosing += VisualizarPdf_FormClosing;
         }
     }
 }
